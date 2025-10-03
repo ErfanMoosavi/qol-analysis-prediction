@@ -1,55 +1,59 @@
 # Quality of Life Analysis
 
-This project analyzes a dataset containing various metrics related to the quality of life in different countries. The main goal is to clean the data, handle missing values, and apply a machine learning model (Linear Regression) to predict missing entries, particularly in the "Health" column.
+## 📌 Overview
 
-## Features
+**Quality of Life Analysis** is a project that analyzes country-level metrics related to quality of life.
+It focuses on **data cleaning, missing value handling, and prediction of missing entries** using **Linear Regression**, particularly targeting the "Health" column.
 
-- **Data Preprocessing**
-  - Loads CSV-based country-level quality-of-life data
-  - Drops irrelevant or redundant columns
-  - Detects and visualizes missing values
+---
 
-- **Missing Value Imputation**
-  - Identifies zero entries in the "Health" column as missing
-  - Uses Linear Regression to predict and fill missing "Health" values based on other numerical features
+## ✨ Features
 
-- **Visualization**
-  - Generates visual insights using:
-    - Seaborn heatmaps
-    - Histograms and distribution plots
+This project provides a robust workflow for preprocessing, imputing missing values, and visualizing quality-of-life metrics.
 
-- **Machine Learning**
-  - Applies `LinearRegression` from scikit-learn
-  - Fits model on remaining data to predict missing values
+* **Data Preprocessing** → Loads CSV-based data, drops irrelevant columns, and inspects for missing values.
+* **Missing Value Imputation** → Predicts missing "Health" values using Linear Regression.
+* **Visualization** → Generates insights using Seaborn heatmaps, histograms, and distribution plots.
+* **Machine Learning** → Uses `LinearRegression` from scikit-learn for predicting missing data.
 
-## Technologies Used
+---
 
-- **Python** — Primary programming language
-- **Pandas** — Data handling and manipulation
-- **NumPy** — Numerical computation
-- **Matplotlib & Seaborn** — Visualization
-- **scikit-learn** — Regression model and evaluation
+## 🚀 Installation & Dependencies
 
-## Project Workflow
+Install required Python packages:
+
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn
+```
+
+---
+
+## ⚡ Project Workflow
 
 1. **Load and Inspect Data**
-   - Dataset is loaded from `Dataset/quality_of_life.csv`
-   - Drops unnecessary columns like `Unnamed: 0` and `Rank`
+
+   * Dataset loaded from `Dataset/quality_of_life.csv`
+   * Drops unnecessary columns like `Unnamed: 0` and `Rank`
 
 2. **Clean Data**
-   - Inspects basic statistics and structure
-   - Detects and locates anomalies (zeros in `Health`)
+
+   * Inspects basic statistics and structure
+   * Detects anomalies (zeros in `Health` column)
 
 3. **Handle Missing Values**
-   - Locates the sample with missing `Health`
-   - Builds a linear regression model using the rest of the dataset
-   - Predicts and replaces the missing value
+
+   * Locates the missing `Health` sample
+   * Trains Linear Regression on the rest of the data
+   * Predicts and fills the missing value
 
 4. **Visualization**
-   - Uses seaborn and matplotlib for data exploration
-   - Displays value distributions, correlations, and missing value heatmaps
 
-## File Structure
+   * Explores data using Seaborn and Matplotlib
+   * Plots value distributions, correlations, and missing value heatmaps
+
+---
+
+## 🗂 File Structure
 
 ```
 .
@@ -59,7 +63,9 @@ This project analyzes a dataset containing various metrics related to the qualit
 └── README.md
 ```
 
-## Example Code Snippet
+---
+
+## 🧩 Example Code Snippet
 
 ```python
 # Train model on available data
@@ -72,14 +78,18 @@ pred = lin_reg.predict(df.drop(["Health", "Country"], axis=1).iloc[134].values.r
 df.loc[134, "Health"] = pred[0]
 ```
 
-## Notes
+---
 
-- The model assumes linearity between features and `Health`
-- Can be extended by trying other regressors (e.g., RandomForest, SVR)
-- Exploratory Data Analysis (EDA) steps are basic but can be enriched
+## 📊 Notes
 
-## Future Extensions
+* Assumes linearity between features and `Health`
+* Can be extended using other regressors (RandomForest, SVR, etc.)
+* Basic EDA is included; further exploration can be added
 
-- Add classification or clustering models
-- Build an interactive dashboard using Streamlit
-- Incorporate socio-economic indicators from external datasets
+---
+
+## 🔮 Future Extensions
+
+* Add classification or clustering models
+* Build an interactive dashboard using Streamlit
+* Integrate socio-economic indicators from external da
